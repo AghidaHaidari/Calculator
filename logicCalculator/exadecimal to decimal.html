@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="style/style.css">
+	<link rel="shortcut icon" type="image/png" href="img/icon.png">
+	
+</head>
+<body >
+
+<div id="key">
+ <a href="start.html" id="back2"><img src="img/m2.png" id="m2" id="back"></a>
+<p id="p2">calculator programmer</p>
+	<p id="p1">Exadecimal to Decimal</p>
+
+	<table>
+	<tr>
+		<td><button class="disabled">XOR</button></td>
+		<td><button class="disabled">OR</button></td>
+		<td><button class="disabled">NOT</button></td>
+		<td><button class="disabled">AND</button></td>
+		<td><button >.</button></td>
+		<td><button  id="btnm" onclick="dec()">=</button></td>
+	<td><button onclick="i(this)" id="reset">clr</button></td>
+	</tr>
+	<tr>
+		<textarea id="input1"></textarea><br>
+		</tr>
+	<tr>
+		<td><button onclick="i(this)">A</button></td>
+		<td><button onclick="i(this)">B</button></td>
+		<td><button onclick="i(this)">7</button></td>
+		<td><button onclick="i(this)">8</button> </td>
+		<td><button onclick="i(this)">9</button></td>
+		<td><button class="disabled">%</button></td>
+	<td><button class="disabled">/</button></td>
+		
+		
+	</tr>
+	<tr>
+		<td><button onclick="i(this)">C</button> </td>
+		<td><button onclick="i(this)">D</button></td>
+		<td><button onclick="i(this)">4</button></td>
+		<td><button onclick="i(this)">5</button> </td>
+		<td><button onclick="i(this)">6</button></td>
+		<td><button class="disabled">-</button></td>
+		<td><button class="disabled">*</button></td>
+		
+		
+	</tr>
+
+
+	<tr>
+	<tr>
+		<td><button onclick="i(this)">E</button> </td>
+		<td><button onclick="i(this)">F</button></td>
+		<td><button onclick="i(this)">1</button></td>
+		<td><button onclick="i(this)">2</button> </td>
+		<td><button onclick="i(this)">3</button></td>
+		<td><button onclick="i(this)">0</button></td>
+		<td><button class="disabled">+</button> </td>
+		
+		
+	</tr>
+		
+		
+	
+	
+	</table>
+</div>
+	<script type="text/javascript" >
+		var input1=document.getElementById('input1');
+	function i(a){
+		
+		input1.value+=a.innerHTML;
+	}
+		var reset=document.getElementById("reset");
+	reset.addEventListener("click",function(){
+		input1.value=" ";
+	});
+	var btnm=document.getElementById("btnm");
+	btnm.addEventListener("click",function(){
+		input1.value+=" = "+eval(document.getElementById("input1").value);
+	});
+				 const convert = {
+  bin2dec : s => parseInt(s, 2).toString(10),
+  bin2hex : s => parseInt(s, 2).toString(16),
+  dec2bin : s => parseInt(s, 10).toString(2),
+  dec2hex : s => parseInt(s, 10).toString(16),
+  hex2bin : s => parseInt(s, 16).toString(2),
+  hex2dec : s => parseInt(s, 16).toString(10)
+};
+ function dec(){
+	  var a=(input1.value);
+
+	  input1.value+=" = "+(convert.hex2dec(a));
+	  }
+	
+	</script>
+</body>
+</html>

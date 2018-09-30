@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="style/style.css">
+	<link rel="shortcut icon" type="image/png" href="img/icon.png">
+	<style type="text/css">
+	#input2{padding: 83px 120px;
+	background-color: black;
+	color: white;
+	font-size: 30px;
+	font-family: Andalus;
+	}
+	@media only screen and (max-width:1024px) {
+	#input2{
+	padding: 140px 153px;
+	background-color: black;
+	color: white;
+	font-size: 30px;
+	font-family: Andalus;
+	}	
+	}
+	</style>
+</head>
+<body >
+
+<div id="key">
+ <a href="start.html" id="back2"><img src="img/m2.png" id="m2" id="back"></a>
+	<p id="p2">calculator programmer</p>
+	<p id="p1">Logic Operation</p>
+
+	<table>
+	<tr>
+		<td><button onclick="xor()" >XOR</button></td>
+		<td><button onclick="or()">OR</button></td>
+		<td><button onclick="not()">NOT</button></td>
+		<td><button onclick="and()">AND</button></td>
+		<td><button   onclick="i(this)">.</button></td>
+		<td><button  id="btnm">=</button></td>
+	<td><button onclick="i(this)" id="reset">clr</button></td>
+	</tr>
+	<tr>
+		<input id="input2"><br>
+		</tr>
+	<tr>
+		<td><button class="disabled" >A</button></td>
+		<td><button class="disabled" >B</button></td>
+		<td><button  onclick="i(this)">7</button></td>
+		<td><button  onclick="i(this)">8</button> </td>
+		<td><button  onclick="i(this)">9</button></td>
+		<td><button  onclick="i(this)">%</button></td>
+	<td><button  onclick="i(this)">/</button></td>
+		
+		
+	</tr>
+	<tr>
+		<td><button class="disabled" >C</button> </td>
+		<td><button class="disabled" >D</button></td>
+		<td><button  onclick="i(this)">4</button></td>
+		<td><button  onclick="i(this)">5</button> </td>
+		<td><button  onclick="i(this)">6</button></td>
+		<td><button  onclick="i(this)">-</button></td>
+		<td><button  onclick="i(this)">*</button></td>
+		
+		
+	</tr>
+
+
+	<tr>
+	<tr>
+		<td><button class="disabled" >E</button> </td>
+		<td><button class="disabled" >F</button></td>
+		<td><button onclick="i(this)">1</button></td>
+		<td><button  onclick="i(this)">2</button> </td>
+		<td><button  onclick="i(this)">3</button></td>
+		<td><button onclick="i(this)">0</button></td>
+		<td><button  onclick="i(this)">+</button> </td>
+		
+		
+	</tr>
+		
+		
+	
+	
+	</table>
+</div>
+	<script type="text/javascript" >
+		var input2=document.getElementById('input2');
+	function i(a){
+		
+		input2.value+=a.innerHTML;
+	}
+		var reset=document.getElementById("reset");
+	reset.addEventListener("click",function(){
+		input2.value="";
+	});
+	var btnm=document.getElementById("btnm");
+	btnm.addEventListener("click",function(){
+		input2.value+=" = "+eval(document.getElementById("input2").value);
+	});
+	//not operation........................................
+	function not(){
+
+	var txt =input2.value;       
+	var a=txt.split("");  
+	var b="";  
+	for(var i=0; i<a.length; i++){
+
+
+		 	if(a[i]==0){
+		 		b+="1";
+		 		
+
+		 	}
+		 	else{
+		 		b+="0";
+
+		 		
+
+		 	}
+		
+		}
+		input2.value+=" = "+b;	
+		}
+	//and opearation.....................................................
+	var result ="";
+	function and(){
+	var a=input2.value;
+	var arr = a.split("");	  
+		 for(var i=0;i<arr.length; i++){
+	 		if(a[i]==0){
+	 	 		result=0;
+	 	 		break;	
+	 	 	}
+	 	 	else{
+	 	 		result=1;
+	 	 	}
+	 	 }
+	 	  
+	  input2.value+=" = "+result;	
+	 }
+//or operation................................
+	var result ="";
+	function or(){
+	var a=input2.value;
+	var arr = a.split("");	  
+		 for(var i=0;i<arr.length; i++){
+	 		if(a[i]==1){
+	 	 		result=1;
+	 	 		break;	
+	 	 	}
+	 	 	else{
+	 	 		result=0;
+	 	 	}
+	 	 }
+	 	  
+	  input2.value+=" = "+result;	
+	 }
+//xor operation..........................................................
+//joft mesha safer..................
+	function xor(){
+	var a=(input2.value);
+	var res=0;
+	for(var x=0; x<a.length; x++){
+		var num = +(a.charAt(x));
+		res += num;
+		
+	}
+	// document.write(res);
+	
+	var b=a.split("");
+	var result;
+	var sum;
+		for(var i=0; i<a.length; i++){
+			sum+=parseInt(b[i]);
+			result = sum;
+		}
+
+		if(res%2==0){
+		 			b="0";
+		 			
+		 		
+		 	}else{
+	 	 		b="1";
+	 	 		
+	 	 	}
+	 	 	//alert(result);
+	 	 	 input2.value+=" = "+b;
+		}
+		</script>
+	</body>
+</html>
